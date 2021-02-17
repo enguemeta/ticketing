@@ -174,3 +174,30 @@ kubectl get secrets
 
  // GIT 
  git remote add origin https://github.com/enguemeta/ticketing.git
+
+  Id CommandLine
+  -- -----------
+   1 git init
+   2 git add .
+   3 cls
+   4 git commit -m "initial commit"
+   5 git remote add origin https://github.com/enguemeta/ticketing.git
+   6 git push origin master
+   7 git status
+   8 git add .
+   9 git commit -m "update package.json"
+  10 git pull origin master
+  11 git push origin master
+  12 git add .
+  13 git commit -m "update index.ts on auth"
+  14 git checkout -b dev
+  15 git status
+  16 git status
+  17 git add .
+  18 git commit -m "update index.ts on auth"
+  19 git push origin dev    
+  22 git checkout master
+  23 git add .
+  24 git commit -m "added test scripts"
+  25 git pull origin master
+  26 git push origin master
