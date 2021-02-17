@@ -1,0 +1,28 @@
+name: deploy-manifests
+
+on:  
+  push:
+    branches:
+      - master
+    paths:
+      - 'infra/**'    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2      
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} # create this in Github secret
+      - run: doctl kubernetes cluster kubeconfig save ticketing # ticketing is the name of kubernetes cluster in digitalocean platform
+      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
+#-------- Create secret by running manual command on kubernetes on digitalocean
+# kubectl config view       
+# kubectl config use-context <name-of-context get from the previous command>
+# kubectl create secret generic jwt-secret --from-literal JWT_KEY=xxxx
+# kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=xxxx
+# kubectl get secrets
+#-------- config nginx on digitalocean
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/do/deploy.yaml
+
+

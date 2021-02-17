@@ -201,3 +201,7 @@ kubectl get secrets
   24 git commit -m "added test scripts"
   25 git pull origin master
   26 git push origin master
+
+  // Connect Kubernetes to DIGITAL OCEAN
+doct auth init
+
