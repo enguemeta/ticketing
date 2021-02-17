@@ -1,0 +1,124 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmIyZDBmMDJkOGJlNjliY2JlZjc3NCIsImlhdCI6MTYxMDMwMDYzMCwiZXhwIjoxNjEwMzg3MDMwfQ._vjZuNCCWgLAOVPGL8OZnXADnF2hdjw00-zTppP-mOw
+@authToken = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmIyZDBmMDJkOGJlNjliY2JlZjc3NCIsImlhdCI6MTYxMDMwMDYzMCwiZXhwIjoxNjEwMzg3MDMwfQ._vjZuNCCWgLAOVPGL8OZnXADnF2hdjw00-zTppP-mOw
+
+# GET http://localhost:5001/
+# ###
+# POST http://localhost:5001/users HTTP/1.1
+# ###
+# POST http://localhost:5001/5e066026a8524053a45398ae/tasks HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "name": "sample task3"
+# }
+
+# ###
+# GET http://localhost:5001/5e066026a8524053a45398ae/tasks HTTP/1.1
+# ###
+# PUT http ://localhost:5001/5e066026a8524053a45398ae/tasks/5e066032a8524053a45398af HTTP/1.1
+# Content-Type: application/json
+
+# {  
+#   "name": "sampless"
+# }
+# ###
+# DELETE http://localhost:5001/5de9a81eb973518a4c00a147/tasks/5de9b33f1ca6b3376430cc26 HTTP/1.1
+# ###
+# GET http://localhost:5001/api/products?page=2
+# Content-Type: application/json
+# Authorization: {{authToken}}
+# ###
+# GET http://localhost:5001/api/products/1
+# Content-Type: application/json
+# Authorization: {{authToken}}
+# ###
+# GET http://localhost:5001/api/products/category/electronics
+# Content-Type: application/json
+# Authorization: {{authToken}}
+# ###
+# GET http://localhost:5001/api/orders
+# Content-Type: application/json
+# Authorization: {{authToken}}
+# ###
+# GET http://localhost:5001/api/orders/106
+# Content-Type: application/json
+# Authorization: {{authToken}}
+# ###
+# POST http://localhost:5001/api/orders/new
+# Content-Type: application/json
+# Authorization: {{authToken}}
+
+# {  
+#   "userId": "2",
+#   "products":
+#    [
+#     {
+#       "id": "1",
+#       "incart": "2"
+#     },
+#     {
+#       "id": "18",
+#       "incart": "5"
+#     },
+#     {
+#       "id": "32",
+#       "incart": "3"
+#     },
+#     {
+#       "id": "13",
+#       "incart": "8"
+#     }
+#    ]
+# }
+# ###
+# POST http://localhost:5001/api/auth/register
+# Content-Type: application/json
+
+# {  
+#   "name": "Emmanuel Nguemeta",
+#   "email": "enguemeta@4b-wins.com",
+#   "password": "password"
+# }
+# ###
+# GET http://localhost:5001/api/auth/user
+# Content-Type: application/json
+# x-json-web-token: {{token}}
+
+# ###
+# POST http://localhost:5001/api/auth/login
+# Content-Type: application/json
+
+# {    
+#   "email": "enguemeta@4b-wins.com",
+#   "password": "password"
+# }
+
+POST https://ticketing.dev/api/users/signup
+Content-Type: application/json
+
+{    
+  "email": "dasdsdasdasd",
+  "password": "1"
+}
+
+###
+
+POST https://ticketing.dev/api/users/signup
+Content-Type: application/json
+
+{    
+  "email": "bri1556@4b-wins.com",
+  "password": "password"
+}
+
+###
+
+POST https://ticketing.dev/api/users/signin
+Content-Type: application/json
+
+{    
+  "email": "bri1556@4b-wins.com",
+  "password": "password"
+}
+
+###

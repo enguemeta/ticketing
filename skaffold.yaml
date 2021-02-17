@@ -1,0 +1,83 @@
+
+#-------------- LOCAL MACHINE
+
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: enguemeta/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'  
+            dest: .
+    - image: enguemeta/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'  
+            dest: .
+    - image: enguemeta/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'  
+            dest: .
+    - image: enguemeta/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'  
+            dest: .
+    - image: enguemeta/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'  
+            dest: .
+    - image: enguemeta/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'  
+            dest: .                        
+#-------------- GOOGLE CLOUD
+
+# apiVersion: skaffold/v2alpha3
+# kind: Config
+# deploy:
+#   kubectl:
+#     manifests:
+#       - ./infra/k8s/*
+# build:  
+#   googleCloudBuild:
+#     projectId: ticketing-dev-301913
+#   artifacts:
+#     - image: us.gcr.io/ticketing-dev-301913/auth
+#       context: auth
+#       docker:
+#         dockerfile: Dockerfile
+#       sync:
+#         manual:
+#           - src: 'src/**/*.ts'  
+#             dest: .
+
+
