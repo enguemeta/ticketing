@@ -171,3 +171,6 @@ kubectl get secrets
 
 // React Stripe
  npm install react-stripe-checkout
+
+ // GIT 
+ git remote add origin https://github.com/enguemeta/ticketing.git
